@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highbramble Park - World-Class Standardbred Training Center</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #002941;
+            --secondary-color: #4A90E2; /* Updated secondary color */
+            --white-color: #F1F2F2;
+            --accent-color: #D4AF37; /* New accent color */
+        }
+        body {
+            background-color: var(--white-color);
+            color: var(--primary-color);
+            font-family: 'Raleway', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        .bg-primary {
+            background-color: var(--primary-color);
+        }
+        .bg-secondary {
+            background-color: var(--secondary-color);
+        }
+        .text-primary {
+            color: var(--primary-color);
+        }
+        .text-secondary {
+            color: var(--secondary-color);
+        }
+        .text-accent {
+            color: var(--accent-color);
+        }
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: var(--white-color);
+        }
+        .btn-primary:hover {
+            background-color: #3A7BC8;
+        }
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        .hamburger {
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            transition: all 0.25s;
+            position: relative;
+        }
+        .hamburger-top,
+        .hamburger-middle,
+        .hamburger-bottom {
+            position: absolute;
+            width: 24px;
+            height: 2px;
+            top: 0;
+            left: 0;
+            background: #fff;
+            transform: rotate(0);
+            transition: all 0.5s;
+        }
+        .hamburger-middle {
+            transform: translateY(7px);
+        }
+        .hamburger-bottom {
+            transform: translateY(14px);
+        }
+        .open .hamburger-top {
+            transform: rotate(45deg) translateY(6px) translateX(6px);
+        }
+        .open .hamburger-middle {
+            display: none;
+        }
+        .open .hamburger-bottom {
+            transform: rotate(-45deg) translateY(6px) translateX(-6px);
+        }
+        .mobile-menu {
+            position: fixed;
+            top: 68px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--primary-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(100%);
+            z-index: 1;
+        }
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        .mobile-menu a {
+            font-size: 2rem;
+            padding: 1rem 0;
+            width: 100%;
+            text-align: center;
+        }
+        .hero-logo {
+            max-width: 350px;
+            margin: 0 auto;
+        }
+        .header-logo {
+            max-height: 40px;
+        }
+        .header {
+            transition: transform 0.3s ease-in-out;
+            transform: translateY(-100%);
+        }
+        .header.visible {
+            transform: translateY(0);
+        }
+        .container {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <header id="header" class="header bg-primary text-white py-4 fixed w-full z-50">
+        <nav class="container px-4 flex justify-between items-center">
+            <img src="assets/SVG/highbramble-park.svg" alt="Highbramble Park" class="header-logo">
+            <div class="hidden md:flex space-x-4">
+                <a href="#about" class="hover:text-secondary transition duration-300">About</a>
+                <a href="#facilities" class="hover:text-secondary transition duration-300">Facilities</a>
+                <a href="#events" class="hover:text-secondary transition duration-300">Events</a>
+                <a href="#contact" class="hover:text-secondary transition duration-300">Contact</a>
+            </div>
+            <button id="menu-btn" class="hamburger block md:hidden focus:outline-none" type="button">
+                <span class="hamburger-top"></span>
+                <span class="hamburger-middle"></span>
+                <span class="hamburger-bottom"></span>
+            </button>
+        </nav>
+    </header>
+
+    <div id="mobile-menu" class="mobile-menu md:hidden">
+        <a href="#about" class="block text-white hover:text-secondary transition duration-300">About</a>
+        <a href="#facilities" class="block text-white hover:text-secondary transition duration-300">Facilities</a>
+        <a href="#events" class="block text-white hover:text-secondary transition duration-300">Events</a>
+        <a href="#contact" class="block text-white hover:text-secondary transition duration-300">Contact</a>
+    </div>
+
+    <main>
+        <section id="hero" class="bg-cover bg-center min-h-screen flex items-center" style="background-image: url('assets/horse-farm-overlay.png');">
+            <div class="container px-4 text-center">
+                <img class="hero-logo mb-12" src="assets/SVG/highbramble-park.svg" alt="Highbramble Park">
+                <p class="text-xl md:text-2xl text-white mb-12 fade-in-up font-light">Kentucky's Premier Standardbred Training Center</p>
+                <a href="#about" class="btn-primary py-3 px-8 rounded-full hover:bg-secondary transition duration-300 fade-in-up text-lg font-semibold">Learn More</a>
+            </div>
+        </section>
+
+        <section id="about" class="py-16 bg-white">
+            <div class="container px-4">
+                <h2 class="text-3xl font-bold mb-12 text-center text-primary fade-in-up">About Highbramble Park</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="fade-in-up">
+                        <p class="mb-4 text-lg">Highbramble Park is a world-class Standardbred training center located in the heart of Kentucky. Our state-of-the-art facility is designed to cater to the needs of both professional horsemen and the general public.</p>
+                        <p class="text-lg">With capacity for up to 700 horses, our center offers top-notch training facilities, a gourmet restaurant, and a picturesque lake for recreation and water supply.</p>
+                    </div>
+                    <div class="fade-in-up">
+                        <img src="assets/png/map.png" alt="Highbramble Park Aerial View" class="rounded-lg shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="facilities" class="py-16 bg-primary text-white">
+            <div class="container px-4">
+                <h2 class="text-3xl font-bold mb-4 text-center fade-in-up">Our Facilities</h2>
+              <p class="mb-4 text-lg text-center mb-8">Lorem Ipsum</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-white text-primary p-6 rounded-lg shadow-md fade-in-up">
+                        <img class="mb-6" src="assets/Sketches/1.jpg">
+                        <h3 class="text-xl font-semibold mb-4">State-of-the-Art Barns</h3>
+                        <p>Modern, spacious barns designed for the comfort and safety of our equine residents.</p>
+                    </div>
+                    <div class="bg-white text-primary p-6 rounded-lg shadow-md fade-in-up">
+                        <img class="mb-6" src="assets/Sketches/2.jpg">
+                        <h3 class="text-xl font-semibold mb-4">Training Tracks</h3>
+                        <p>High-quality tracks for year-round training, including all-weather surfaces.</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white text-primary p-6 rounded-lg shadow-md fade-in-up">
+                        <img class="mb-6" src="assets/Sketches/5.jpg">
+                        <h3 class="text-xl font-semibold mb-4">Lorem Ipsum</h3>
+                        <p>Lorem Ipsum</p>
+                    </div>
+                    <div class="bg-white text-primary p-6 rounded-lg shadow-md fade-in-up">
+                        <img class="mb-6" src="assets/Sketches/6.jpg">
+                        <h3 class="text-xl font-semibold mb-4">Lorem Ipsum</h3>
+                        <p>Lorem Ipsum</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="contact" class="py-16 bg-secondary">
+            <div class="container px-4">
+                <h2 class="text-3xl font-bold mb-8 text-center text-white fade-in-up">Contact Us</h2>
+                <div class="max-w-lg mx-auto">
+                          <p class="mb-4 text-lg text-center mb-8 text-white">Contact us at x@x.com to learn more.</p>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-primary text-white py-8">
+        <div class="container px-4 text-center">
+            <p>&copy; 2024 Highbramble Park. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                } else {
+                    entry.target.classList.remove('visible');
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.fade-in-up').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Hamburger menu functionality
+        const btn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            btn.classList.toggle('open');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                btn.classList.remove('open');
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Header visibility on scroll
+        let lastScrollTop = 0;
+        const header = document.getElementById('header');
+
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop) {
+                header.classList.remove('visible');
+            } else {
+                header.classList.add('visible');
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        }, false);
+    </script>
+</body>
+</html>
